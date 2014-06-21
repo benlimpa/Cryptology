@@ -10,6 +10,22 @@ public class Cryptology {
 		
 	}
 	
+	public String stripNonLetter(String string) {
+		
+		// Extract words consisting of only letters, Exclude all digits, punctuation and whitespace
+		// \\W means non-word character
+		// \\d means digit
+		// + means one or more than one such character
+		String[] string_array = string.split("[\\W\\d]+");
+		
+		// Merge array into one upper case string
+		String fin_string = "";
+		for (String text : string_array) {
+			fin_string += text;
+		}
+		return fin_string.toUpperCase();
+	}
+	
 	public int findNearestWeightedFrequency(double searchValue) {
 		
 		// Don't do Binary Search! It does not guarantee find the CLOSEST value greater than the search value!
