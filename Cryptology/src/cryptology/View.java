@@ -10,8 +10,6 @@ public class View {
 		
 	}
 	
-	// Test
-	
 	private String getText(String type) {
 		
 		String 	text 		= "";
@@ -87,7 +85,7 @@ public class View {
 			
 			keyword = Cryptology.stripNonLetter(keyword);
 			
-			if (validateKeyword(keyword) && (keyword.length() >= Cryptography.MINIMUM_KEYWORD_LENGTH && keyword.length() <= Cryptography.MAXIMUM_KEYWORD_LENGTH) || nullKeywordOK == NULL_KEYWORD) {
+			if (Cryptology.validateKeyword(keyword) && (keyword.length() >= Cryptology.MINIMUM_KEYWORD_LENGTH && keyword.length() <= Cryptology.MAXIMUM_KEYWORD_LENGTH) || nullKeywordOK == NULL_KEYWORD) {
 				
 				finished = true;
 			}
