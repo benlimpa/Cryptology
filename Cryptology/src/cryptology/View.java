@@ -10,11 +10,6 @@ public class View {
 		
 	}
 	
-	/*
-	 * Get Text Method
-	 * 
-	 */
-	
 	private String getText(String type) {
 		
 		String 	text 		= "";
@@ -49,5 +44,29 @@ public class View {
 		}
 		text = text.toUpperCase();
 		return text;
+	}
+	
+	private boolean getBoolean(String label) {
+		
+		boolean value = false;
+		boolean valueNotFound;
+		
+		do {
+			
+			try {
+				
+				System.out.println("\nWould you like \"" + label + "\" [true/false]:  ");
+				value = keyboard.nextBoolean();
+				keyboard.nextLine();
+				valueNotFound = false;
+			} catch (Exception e) {
+				
+				System.out.println("Invalid Input");
+				keyboard.nextLine();
+				valueNotFound = true;
+			}
+		} while (valueNotFound);
+		
+		return value;
 	}
 }
