@@ -2,6 +2,8 @@ package cryptology;
 
 import java.util.Scanner;
 
+import cryptography.Cryptography;
+
 public class View {
 
 	private Scanner	keyboard;
@@ -68,5 +70,34 @@ public class View {
 		} while (valueNotFound);
 		
 		return value;
+	}
+	
+	private String getKeyword(int number, int nullKeywordOK) {
+		
+		boolean finished 	= false;
+		String 	keyword 	= "";
+
+		while (!finished) {
+			
+			System.out.print("\n" + "Enter keyword #" + number + " with at least " + Cryptography.MINIMUM_KEYWORD_LENGTH + " alphabetic characters: ");
+		
+			keyword = keyboard.nextLine();
+
+			// Strip invalid characters (non-alphabetic)
+			
+			keyword = Cryptology.stripNonLetter(keyword);
+			
+			if (validateKeyword(keyword) && (keyword.length() >= Cryptography.MINIMUM_KEYWORD_LENGTH && keyword.length() <= Cryptography.MAXIMUM_KEYWORD_LENGTH) || nullKeywordOK == NULL_KEYWORD) {
+				
+				finished = true;
+			}
+			else {
+				
+				System.out.println("\n" + "Keywords cannot be part of the clear text. Keywords must have at least " + Cryptography.MINIMUM_KEYWORD_LENGTH + " and no more than " + Cryptography.MAXIMUM_KEYWORD_LENGTH + " alphabetic characters");
+			}
+		}
+
+		keyword = keyword.toUpperCase();
+		return keyword;
 	}
 }
