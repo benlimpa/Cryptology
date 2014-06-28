@@ -2,8 +2,6 @@ package cryptology;
 
 import java.util.Scanner;
 
-import cryptography.Cryptography;
-
 public class View {
 
 	private Scanner	keyboard;
