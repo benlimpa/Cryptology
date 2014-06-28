@@ -14,7 +14,7 @@ public class Cryptology {
 		
 	}
 	
-	public String stripNonLetter(String string) {
+	public static String stripNonLetter(String string) {
 		
 		// Extract words consisting of only letters, Exclude all digits, punctuation and whitespace
 		// \\W means non-word character
@@ -30,7 +30,7 @@ public class Cryptology {
 		return fin_string.toUpperCase();
 	}
 	
-	public int findNearestWeightedFrequency(double searchValue) {
+	public static int findNearestWeightedFrequency(double searchValue) {
 		
 		// Don't do Binary Search! It does not guarantee find the CLOSEST value greater than the search value!
 		
@@ -47,7 +47,8 @@ public class Cryptology {
 		return indexFound;
 	}
 	
-	public char generateWeightedLetter() {
+	public static char generateWeightedLetter() {
+		
 		Random random = new Random();
 		char letter = 0;
 		boolean letter_found = false;
@@ -71,7 +72,7 @@ public class Cryptology {
 	 * 
 	 */
 	
-	public char getNull() {
+	public static char getNull() {
 		
 		Random 	 random					= new Random();
 		double	 randomCummulativeValue	= 0;
