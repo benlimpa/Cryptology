@@ -20,7 +20,7 @@ public class Cryptology {
 			// Quit searching when a frequency greater or equal than the search value is found
 			if (WEIGHTED_ENGLISH_LETTER_FREQUENCIES[index] >= searchValue) {
 				
-				indexFound = index;
+				indexFound = index;				
 				break;
 			}			
 		}		
