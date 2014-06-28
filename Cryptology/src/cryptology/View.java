@@ -10,6 +10,8 @@ public class View {
 		
 	}
 	
+	// Test
+	
 	private String getText(String type) {
 		
 		String 	text 		= "";
