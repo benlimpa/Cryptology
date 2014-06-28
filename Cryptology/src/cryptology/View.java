@@ -70,7 +70,7 @@ public class View {
 		return value;
 	}
 	
-	private String getKeyword(int message, int minimumLength, int maximumLength, boolean nullKeywordOK) {
+	private String getKeyword(String clearText, String message, int minimumLength, int maximumLength, boolean nullKeywordOK) {
 		
 		boolean finished 	= false;
 		String 	keyword 	= "";
@@ -85,7 +85,7 @@ public class View {
 			keyword = Cryptology.stripNonLetter(keyword);
 			
 			// Validate the keyword
-			if (Cryptology.validateKeyword(keyword) && (keyword.length() >= minimumLength && keyword.length() <= maximumLength) || nullKeywordOK) {
+			if (!clearText.contains(keyword) && (keyword.length() >= minimumLength && keyword.length() <= maximumLength) || nullKeywordOK) {
 				
 				finished = true;
 			}
