@@ -70,28 +70,28 @@ public class View {
 		return value;
 	}
 	
-	private String getKeyword(int number, int nullKeywordOK) {
+	private String getKeyword(int message, int minimumLength, int maximumLength, boolean nullKeywordOK) {
 		
 		boolean finished 	= false;
 		String 	keyword 	= "";
 
 		while (!finished) {
 			
-			System.out.print("\n" + "Enter keyword #" + number + " with at least " + Cryptography.MINIMUM_KEYWORD_LENGTH + " alphabetic characters: ");
+			System.out.print("\n" + message + " with a minimum of " + minimumLength + " and a maximum of " + maximumLength + " alphabetic characters: ");
 		
 			keyword = keyboard.nextLine();
 
 			// Strip invalid characters (non-alphabetic)
-			
 			keyword = Cryptology.stripNonLetter(keyword);
 			
-			if (Cryptology.validateKeyword(keyword) && (keyword.length() >= Cryptology.MINIMUM_KEYWORD_LENGTH && keyword.length() <= Cryptology.MAXIMUM_KEYWORD_LENGTH) || nullKeywordOK == NULL_KEYWORD) {
+			// Validate the keyword
+			if (Cryptology.validateKeyword(keyword) && (keyword.length() >= minimumLength && keyword.length() <= maximumLength) || nullKeywordOK) {
 				
 				finished = true;
 			}
 			else {
 				
-				System.out.println("\n" + "Keywords cannot be part of the clear text. Keywords must have at least " + Cryptography.MINIMUM_KEYWORD_LENGTH + " and no more than " + Cryptography.MAXIMUM_KEYWORD_LENGTH + " alphabetic characters");
+				System.out.println("\n" + "Keywords cannot be part of the clear text. Keywords must have at least " + minimumLength + " and no more than " + maximumLength + " alphabetic characters");
 			}
 		}
 
