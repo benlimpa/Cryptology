@@ -64,16 +64,11 @@ public class Cryptology {
 		return letter;
 	}
 	
-	/*
-	 * Get Null Method
-	 * 
-	 * Randomly selects a letter from the English alphabet according to its weighted letter frequency.
-	 * Nulls are used in regular cipher text to pad short rows.
-	 * 
-	 */
-	
 	public static char getNull() {
 		
+		// Randomly selects a letter from the English alphabet according to its weighted letter frequency.
+		// Nulls are used in regular cipher text to pad short rows.
+				
 		Random 	 random					= new Random();
 		double	 randomCummulativeValue	= 0;
 		char 	 randomCharacter		= ' ';
