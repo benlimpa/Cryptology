@@ -31,7 +31,7 @@ public class Caesar extends Cryptology {
 				character += 26;
 			}
 			character += 64;			// Shift back up to ascii values (Shift from 1-26 to)
-			finClearText += String.valueOf((char)character);		// Append to final string
+			finCipherText += String.valueOf((char)character);		// Append to final string
 		}
 		return finCipherText;
 	}
