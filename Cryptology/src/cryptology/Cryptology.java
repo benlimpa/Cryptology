@@ -7,7 +7,7 @@ public class Cryptology {
 	// Weighted Letter Frequencies From A to Z:										  	  	  A		 B		 C	     D	    E	    F		 G		H	    I	    J		 K		L	     M	    N		 O		P	   Q	   R		S		T	   U	   V		W		X	   Y	   Z	
 	
 	public static final double[]	WEIGHTED_ENGLISH_LETTER_FREQUENCIES 				= { 8.167, 9.659, 12.441, 16.694, 29.396, 31.624, 33.639, 39.733, 46.699, 46.852, 47.624, 51.649, 54.055, 60.804, 68.311, 70.24, 70.335, 76.322, 82.649, 91.705, 94.463, 95.441, 97.801, 97.951, 99.925, 99.999 };
-	public static final double[]	LETTER_FREQUENCIES_ENGLISH 							= { 8.167, 1.492, 2.782, 4.253, 12.702, 2.228, 2.015, 6.094, 6.966, 0.153, 0.772, 4.025, 2.406, 6.749, 7.507, 1.929, 0.095, 5.987, 6.327, 9.056, 2.758, 0.978, 2.360, 0.150, 1.974, 0.074 };
+	public static final double[]	LETTER_FREQUENCIES_ENGLISH 							= { 8.167, 1.492, 2.782,  4.253,  12.702,  2.228,  2.015, 6.094,  6.966,  0.153,  0.772,  4.025,  2.406,  6.749,  7.507,  1.929, 0.095,  5.987,  6.327,  9.056,  2.758,  0.978,  2.360,  0.150,  1.974,  0.074  };
 	public static final char[]		ENGLISH_LETTERS										= { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 	
 	public Cryptology() {

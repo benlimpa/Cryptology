@@ -3,8 +3,11 @@ package cryptology;
 public class App {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		View view = new View();
+		
+		view.displayMenu();
+		
 	}
 
 }
