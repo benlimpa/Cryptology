@@ -12,6 +12,10 @@ public class View {
 	private final String	ENCIPHER	= "E";
 	private final String	DECIPHER	= "D";
 	
+	// Settings / User Preferences
+	private boolean			padText		= true;
+	private int				chunkSize	= 4;
+	
 	public View() {
 		keyboard = new Scanner(System.in);
 	}
@@ -22,6 +26,7 @@ public class View {
 												"Cryptography		- [G]",
 												"Cryptanalysis		- [A]",
 												"",
+												"Settings		- [S]",
 												"Various Utilities	- [U]"};
 		
 		final String CRYPTOGRAPHY			=	"G";
@@ -103,6 +108,48 @@ public class View {
 	
 	private void displaySettings() {
 		
+		final String[] SETTINGS_OPTION_INFO = {	"Chunk Size		- [C]",
+												"Pad Text		- [P]"};
+		
+		final String CHUNK_SIZE				=	"C";
+		final String PAD_TEXT				=	"P";
+		
+		String menuOption = "";
+		
+		while (!menuOption.equalsIgnoreCase(EXIT)) {
+			
+			// Display Title
+			System.out.println("\n-------------");
+			System.out.println("--Settings:--\n");
+			
+			// Display Options
+			for (String info : SETTINGS_OPTION_INFO) {
+				
+				System.out.println(info);
+			}
+			
+			// Allow user to select option
+			System.out.print("\nE[X]it or choose a menu option: ");
+			menuOption = keyboard.nextLine();
+			
+			switch (menuOption.toUpperCase()) {
+			
+				case CHUNK_SIZE:
+					System.out.println("Current Chunk Size: " + chunkSize);
+					chunkSize = getInteger("New Chunk Size");
+					System.out.println("Updated Chunk Size: " + chunkSize);
+					break;
+				case PAD_TEXT:
+					System.out.println("Current: Pad Text: " + padText);
+					padText = getBoolean("to Pad Text");
+					System.out.println("Updated: Pad Text: " + padText);
+					break;
+				case EXIT: break;
+				default:
+					System.out.println("INVALID OPTION");
+					break;
+			}
+		}
 	}
 	
 	private void displayCryptography() {
@@ -223,7 +270,7 @@ public class View {
 				case ENCIPHER:
 					String	clearText		= getText("Clear Text");
 							shiftValue		= getInteger("Shift Value");
-					String	encipheredText	= caesar.encipher(clearText, shiftValue);
+					String	encipheredText	= caesar.encipher(clearText, shiftValue, padText, chunkSize);
 					System.out.println("Enciphered Text:\n"+encipheredText);
 					break;
 				case DECIPHER:
@@ -309,7 +356,7 @@ public class View {
 			
 			try {
 				
-				System.out.println("\nWould you like \"" + label + "\" [true/false]:  ");
+				System.out.println("\nWould you like \"" + label + "\"? [true/false]:  ");
 				value = keyboard.nextBoolean();
 				keyboard.nextLine();
 				valueNotFound = false;
