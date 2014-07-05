@@ -2,11 +2,15 @@ package cryptology;
 
 import java.util.Scanner;
 
+import cryptology.ciphers.Caesar;
+
 public class View {
 
 	private Scanner			keyboard;
 	
-	private final String	EXIT = "X";	
+	private final String	EXIT		= "X";	
+	private final String	ENCIPHER	= "E";
+	private final String	DECIPHER	= "D";
 	
 	public View() {
 		keyboard = new Scanner(System.in);
@@ -86,8 +90,8 @@ public class View {
 			switch (menuOption.toUpperCase()) {
 			
 				case STRIP_NON_LETTER:
-					System.out.print("Enter text to be stripped of non-letter characters:  ");
-					System.out.println("\nStripped String:  " + Cryptology.stripNonLetter(keyboard.nextLine()));
+					String stripText = getText("text to be stripped");
+					System.out.println("\nStripped String:  " + Cryptology.stripNonLetter(stripText));
 					break;
 				case EXIT: break;
 				default:
@@ -103,13 +107,163 @@ public class View {
 	
 	private void displayCryptography() {
 		
+		final String[]	CRYPTOGRAPHY_OPTION_INFO	= {	"Types of Ciphers:",
+														"Substituion Cipher	- [S]",
+														"Transposition Cipher	- [T]"};
+
+		final String	SUBSTITUTION_CIPHER			=	"S";
+		final String	TRANSPOSITON_CIPHER			=	"T";
+		
+		String			menuOption			=	"";
+		
+		while (!menuOption.equalsIgnoreCase(EXIT)) {
+			
+			// Display Title
+			System.out.println("\n-----------------");
+			System.out.println("--Cryptography:--\n");
+			
+			// Display Options
+			for (String info : CRYPTOGRAPHY_OPTION_INFO) {
+				
+				System.out.println(info);
+			}
+			
+			// Allow user to select option
+			System.out.print("\nE[X]it or choose a menu option: ");
+			menuOption = keyboard.nextLine();
+			
+			switch (menuOption.toUpperCase()) {
+			
+				case SUBSTITUTION_CIPHER:
+					displaySubstitutionCiphers();
+					break;
+				case TRANSPOSITON_CIPHER:
+					displayTranspositionCiphers();
+					break;
+				case EXIT: break;
+				default:
+					System.out.println("INVALID OPTION");
+					break;
+			}
+		}
 	}
 	
 	private void displayCryptanalysis() {
 		
 	}
-
 	
+	private void displayTranspositionCiphers() {
+		
+	}
+
+	private void displaySubstitutionCiphers() {
+		
+		final String[]	SUBSTITUTION_CIPHER_INFO	= { "Types of Substitution Ciphers:",
+														"Caesar's Cipher - [C]"};
+		
+		final String	CAESAR_CIPHER				=	"C";
+		
+		String menuOption = "";
+		
+		while (!menuOption.equalsIgnoreCase(EXIT)) {
+			
+			// Display Title
+			System.out.println("\n-------------------------");
+			System.out.println("--Substitution Ciphers:--\n");
+			
+			// Display Options
+			for (String info : SUBSTITUTION_CIPHER_INFO) {
+				
+				System.out.println(info);
+			}
+			
+			// Allow user to select option
+			System.out.print("\nE[X]it or choose a menu option: ");
+			menuOption = keyboard.nextLine();
+			
+			switch (menuOption.toUpperCase()) {
+				case CAESAR_CIPHER:
+					displayCaesarCipher();
+					break;
+				case EXIT: break;
+				default:
+					System.out.println("INVALID OPTION");
+					break;
+			}
+		}
+	}
+
+	private void displayCaesarCipher() {
+		
+		final String[]	CAESAR_CIPHER_INFO	= { "Options:",
+												"Encipher - [E]",
+												"Decipher - [D]"};
+		
+		String			menuOption = "";
+		int				shiftValue;
+		
+		Caesar caesar = new Caesar();
+		
+		while (!menuOption.equalsIgnoreCase(EXIT)) {
+			
+			// Display Title
+			System.out.println("\n-------------------");
+			System.out.println("--Caesar's Cipher--\n");
+			
+			// Display Options
+			for (String info : CAESAR_CIPHER_INFO) {
+				System.out.println(info);
+			}
+			
+			System.out.print("\nE[X]it or choose a menu option: ");
+			menuOption = keyboard.nextLine();
+			
+			switch (menuOption.toUpperCase()) {
+				
+				case ENCIPHER:
+					String	clearText		= getText("Clear Text");
+							shiftValue		= getInteger("Shift Value");
+					String	encipheredText	= caesar.encipher(clearText, shiftValue);
+					System.out.println("Enciphered Text:\n"+encipheredText);
+					break;
+				case DECIPHER:
+					String	cipherText	= getText("Cipher Text");
+							shiftValue	= getInteger("Shift Value");
+					String	decipheredText = caesar.decipher(cipherText, shiftValue);
+					System.out.println("Deciphered Text:\n"+decipheredText);
+					break;
+				case EXIT:break;
+				default:
+					System.out.println("INVALID OPTION");
+					break;
+			}
+		}
+	}
+	
+	private int getInteger(String label) {
+		
+		int value = 0;
+		boolean valueFound;
+		
+		do {
+			
+			try {
+				
+				System.out.print("\nPlease enter \"" + label + "\" [Integer]:  ");
+				value = keyboard.nextInt();
+				keyboard.nextLine();
+				valueFound = true;
+			} catch (Exception e) {
+				
+				System.out.println("Invalid Input");
+				keyboard.nextLine();
+				valueFound = false;
+			}
+		} while (!valueFound);
+		
+		return value;
+	}
+
 	private String getText(String type) {
 		
 		String 	text 		= "";
