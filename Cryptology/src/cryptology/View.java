@@ -4,11 +4,111 @@ import java.util.Scanner;
 
 public class View {
 
-	private Scanner	keyboard;
+	private Scanner			keyboard;
+	
+	private final String	EXIT = "X";	
 	
 	public View() {
+		keyboard = new Scanner(System.in);
+	}
+	
+	public void displayMenu() {
+		
+		final String[]	MENU_OPTION_INFO	= {	"What would you like to do?:",
+												"Cryptography		- [G]",
+												"Cryptanalysis		- [A]",
+												"",
+												"Various Utilities	- [U]"};
+		
+		final String CRYPTOGRAPHY			=	"G";
+		final String CRYPTANALYSIS			=	"A";
+		final String UTILITIES				=	"U";
+		final String SETTINGS				=	"S";
+		
+		String menuOption 					= 	"";
+		
+		// Main Menu
+		while (!menuOption.equalsIgnoreCase(EXIT)) { // Loop menu until user selects option or exits
+			
+			// Display Welcome Message
+			System.out.println("\n---------------------------------------");
+			System.out.println("--Welcome to the world of Cryptology!--\n");
+			
+			// Display Menu Options
+			for (String info : MENU_OPTION_INFO) {
+				
+				System.out.println(info);
+			}
+			
+			// Allow user to select option
+			System.out.print("\nE[X]it or choose a menu option: ");
+			menuOption = keyboard.nextLine();
+			
+			switch (menuOption.toUpperCase()) {
+				case CRYPTOGRAPHY:
+					displayCryptography();
+					break;
+				case CRYPTANALYSIS:
+					displayCryptanalysis();
+					break;
+				case UTILITIES:
+					displayUtilities();
+					break;
+				case SETTINGS:
+					displaySettings();
+				case EXIT: break;
+				default:
+					System.out.println("INVALID OPTION");
+					break;
+			}
+		}
+	}
+		
+	private void displayUtilities() {
+		
+		final String	STRIP_NON_LETTER	= "S";
+		
+		String			menuOption				= "";
+		
+		while (!menuOption.equalsIgnoreCase(EXIT)) {
+			
+			// Display Title
+			System.out.println("\n--------------");
+			System.out.println("--Utilities:--\n");
+			
+			// Display Options
+			System.out.println("Strip non-letter characters from text - [S]");
+			
+			// Allow user to select option
+			System.out.print("\nE[X]it or choose a menu option: ");
+			menuOption = keyboard.nextLine();
+			
+			switch (menuOption.toUpperCase()) {
+			
+				case STRIP_NON_LETTER:
+					System.out.print("Enter text to be stripped of non-letter characters:  ");
+					System.out.println("\nStripped String:  " + Cryptology.stripNonLetter(keyboard.nextLine()));
+					break;
+				case EXIT: break;
+				default:
+					System.out.println("INVALID OPTION");
+					break;
+			}
+		}
+	}
+	
+	private void displaySettings() {
 		
 	}
+	
+	private void displayCryptography() {
+		
+	}
+	
+	private void displayCryptanalysis() {
+		
+	}
+
 	
 	private String getText(String type) {
 		
