@@ -199,10 +199,6 @@ public class View {
 		
 	}
 	
-	private void displayTranspositionCiphers() {
-		
-	}
-
 	private void displaySubstitutionCiphers() {
 		
 		final String[]	SUBSTITUTION_CIPHER_INFO	= { "Types of Substitution Ciphers:",
@@ -285,6 +281,57 @@ public class View {
 					break;
 			}
 		}
+	}
+
+	private void displayTranspositionCiphers() {
+		
+		final String[]	TRANSPOSITION_CIPHER_INFO		= { "Types of Transposition Ciphers:",
+															"Columnar Transposition - [C]",
+															"Double Columnar Transposition - [D]"};
+
+		final String	COLUMNAR_TRANSPOSITION			= "C";
+		final String	DOUBLE_COLUMNAR_TRANSPOSITION	= "D";
+		
+		String menuOption = "";
+		
+		while (!menuOption.equalsIgnoreCase(EXIT)) {
+		
+			// Display Title
+			System.out.println("\n-------------------------");
+			System.out.println("--Transposition Ciphers:--\n");
+			
+			// Display Options
+			for (String info : TRANSPOSITION_CIPHER_INFO) {
+			
+				System.out.println(info);
+			}
+		
+			// Allow user to select option
+			System.out.print("\nE[X]it or choose a menu option: ");
+			menuOption = keyboard.nextLine();
+			
+			switch (menuOption.toUpperCase()) {
+				case COLUMNAR_TRANSPOSITION:
+					displayColumnarTranspositionCipher();
+					break;
+				case DOUBLE_COLUMNAR_TRANSPOSITION:
+					displayDoubleColumnarTranspositionCipher();
+					break;
+				case EXIT: break;
+				default:
+					System.out.println("INVALID OPTION");
+					break;
+			}
+		}
+	}
+		
+	void displayColumnarTranspositionCipher() {
+		
+	}
+		
+	void displayDoubleColumnarTranspositionCipher() {
+		
+		
 	}
 	
 	private int getInteger(String label) {
