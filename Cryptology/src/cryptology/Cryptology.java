@@ -13,7 +13,6 @@ public class Cryptology {
 	public Cryptology() {
 		
 	}
-	// Test Push
 	
 	public static String stripNonLetter(String string) {
 		
