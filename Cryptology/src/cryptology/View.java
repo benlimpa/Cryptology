@@ -30,9 +30,9 @@ public class View {
 		this.primaryStage = primaryStage;
 		this.controller = controller;
 		
-		VBox outerPane = new VBox();
-		outerPane.setPadding(new Insets(3));
-		Scene scene = new Scene(outerPane);
+		VBox contentPane = new VBox();
+		contentPane.setPadding(new Insets(3));
+		Scene scene = new Scene(contentPane);
 		scene.getStylesheets().add(this.getClass().getResource("/CSS/cryptology.css").toExternalForm());
 		//scene.getStylesheets().add(this.getClass().getResource("/CSS/metro-bootstrap.css").toExternalForm());
 		
@@ -46,7 +46,7 @@ public class View {
 		MenuItem prefrencesMenuItem = new MenuItem("Preferences");
 		prefrencesMenuItem.addEventHandler(ActionEvent.ACTION, new PreferencesEventHandler());
 		settingsMenu.getItems().add(prefrencesMenuItem);
-		outerPane.getChildren().add(menuBar);
+		contentPane.getChildren().add(menuBar);
 		
 		// <Common Control Pane
 		HBox commonControlsHPane = new HBox();
@@ -86,7 +86,7 @@ public class View {
 		commonControlsHPane.getChildren().addAll(clearTextVPane, cipherButtonVPane, cipherTextVPane);
 		// End of Common Control Pane>
 		
-		outerPane.getChildren().addAll(commonControlsHPane);
+		contentPane.getChildren().addAll(commonControlsHPane);
 		
 		primaryStage.show();
 	}
