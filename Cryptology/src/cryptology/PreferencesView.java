@@ -14,25 +14,25 @@ public class PreferencesView extends Stage {
 	private final String[] CATEGORY_NAMES = {"Global", "Substitution", "Transposition"};
 	
 	public PreferencesView() {
-		VBox contentPane = new VBox();
-		contentPane.setPadding(new Insets(3));
-		Scene scene = new Scene(contentPane);
+		VBox contentVBox = new VBox();
+		contentVBox.setPadding(new Insets(3));
+		Scene scene = new Scene(contentVBox);
 		
 		this.setScene(scene);
 		this.setTitle("Preferences");
 		
-		HBox mainPane = new HBox();
+		HBox mainHBox = new HBox();
+		mainHBox.setSpacing(20);
 		
 		ListView<String> categoryList = new ListView<String>();
 		ObservableList<String> categories = FXCollections.observableArrayList(CATEGORY_NAMES);
 		categoryList.setItems(categories);
-		categoryList.setPadding(new Insets(10));
 		
 		// Add objects to mainPane
-		mainPane.getChildren().add(categoryList);
+		mainHBox.getChildren().add(categoryList);
 		
 		// Add objects to contentPane
-		contentPane.getChildren().add(mainPane);
+		contentVBox.getChildren().add(mainHBox);
 		
 		show();
 	}
