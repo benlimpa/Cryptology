@@ -30,7 +30,7 @@ public class View {
 		outerPane.setPadding(new Insets(3));
 		Scene scene = new Scene(outerPane);
 		scene.getStylesheets().add(this.getClass().getResource("/CSS/cryptology.css").toExternalForm());
-		scene.getStylesheets().add(this.getClass().getResource("/CSS/metro-bootstrap.css").toExternalForm());
+		//scene.getStylesheets().add(this.getClass().getResource("/CSS/metro-bootstrap.css").toExternalForm());
 		
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Cryptology");
