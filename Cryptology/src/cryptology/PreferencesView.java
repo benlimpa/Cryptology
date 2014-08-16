@@ -26,11 +26,14 @@ public class PreferencesView extends Stage {
 		ListView<String> categoryList = new ListView<String>();
 		ObservableList<String> categories = FXCollections.observableArrayList(CATEGORY_NAMES);
 		categoryList.setItems(categories);
+		categoryList.setPadding(new Insets(10));
 		
 		// Add objects to mainPane
 		mainPane.getChildren().add(categoryList);
 		
 		// Add objects to contentPane
 		contentPane.getChildren().add(mainPane);
+		
+		show();
 	}
 }

@@ -95,7 +95,8 @@ public class View {
 
 		@Override
 		public void handle(ActionEvent event) {
-			
+			PreferencesView preferencesView = new PreferencesView();
+			//preferencesView.show();
 			System.out.println("Preferences clicked");
 		}
 	}
