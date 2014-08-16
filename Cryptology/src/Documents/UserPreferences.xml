@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Preferences>
+	
+	<Global>
+		<BlockSize>4</BlockSize>
+		<Padding>true</Padding>
+		<Details>false</Details></Global>
+	<Substitution>
+		<ShiftValue>3</ShiftValue></Substitution>
+	<Transposition></Transposition></Preferences>
