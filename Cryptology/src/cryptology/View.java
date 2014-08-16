@@ -30,9 +30,9 @@ public class View {
 		this.primaryStage = primaryStage;
 		this.controller = controller;
 		
-		VBox contentPane = new VBox();
-		contentPane.setPadding(new Insets(3));
-		Scene scene = new Scene(contentPane);
+		VBox contentVBox = new VBox();
+		contentVBox.setPadding(new Insets(3));
+		Scene scene = new Scene(contentVBox);
 		scene.getStylesheets().add(this.getClass().getResource("/CSS/cryptology.css").toExternalForm());
 		//scene.getStylesheets().add(this.getClass().getResource("/CSS/metro-bootstrap.css").toExternalForm());
 		
@@ -46,21 +46,21 @@ public class View {
 		MenuItem prefrencesMenuItem = new MenuItem("Preferences");
 		prefrencesMenuItem.addEventHandler(ActionEvent.ACTION, new PreferencesEventHandler());
 		settingsMenu.getItems().add(prefrencesMenuItem);
-		contentPane.getChildren().add(menuBar);
+		contentVBox.getChildren().add(menuBar);
 		
 		// <Common Control Pane
 		HBox commonControlsHPane = new HBox();
 		
 		// <Clear Text Controls
-		VBox clearTextVPane = new VBox();
+		VBox clearTextVBox = new VBox();
 		clearTextTextArea = new TextArea();
 		Label clearTextLabel = new Label("Clear Text:");
 		
-		clearTextVPane.getChildren().addAll(clearTextLabel, clearTextTextArea);
+		clearTextVBox.getChildren().addAll(clearTextLabel, clearTextTextArea);
 		// End of Clear Text Controls>
 		
 		// <Cipher Buttons
-		VBox cipherButtonVPane = new VBox();
+		VBox cipherButtonVBox = new VBox();
 		
 		Button encipherButton = new Button("Encipher");
 		encipherButton.addEventHandler(ActionEvent.ACTION, new EncipherButtonEventHandler());
@@ -70,23 +70,23 @@ public class View {
 		decipherButton.addEventHandler(ActionEvent.ACTION, new DecipherButtonEventHandler());
 		decipherButton.setMinWidth(65);
 		
-		cipherButtonVPane.getChildren().addAll(encipherButton, decipherButton);
-		cipherButtonVPane.setSpacing(3);
-		cipherButtonVPane.setPadding(new Insets(20, 0, 0, 0));
+		cipherButtonVBox.getChildren().addAll(encipherButton, decipherButton);
+		cipherButtonVBox.setSpacing(3);
+		cipherButtonVBox.setPadding(new Insets(20, 0, 0, 0));
 		// End of Cipher Buttons>
 		
 		// <Cipher Text Controls
-		VBox cipherTextVPane = new VBox();
+		VBox cipherTextVBox = new VBox();
 		cipherTextTextArea = new TextArea();
 		Label cipherTextLabel = new Label("Cipher Text:");
 		
-		cipherTextVPane.getChildren().addAll(cipherTextLabel, cipherTextTextArea);
+		cipherTextVBox.getChildren().addAll(cipherTextLabel, cipherTextTextArea);
 		// End of Cipher Text Controls>
 		
-		commonControlsHPane.getChildren().addAll(clearTextVPane, cipherButtonVPane, cipherTextVPane);
+		commonControlsHPane.getChildren().addAll(clearTextVBox, cipherButtonVBox, cipherTextVBox);
 		// End of Common Control Pane>
 		
-		contentPane.getChildren().addAll(commonControlsHPane);
+		contentVBox.getChildren().addAll(commonControlsHPane);
 		
 		primaryStage.show();
 	}
@@ -96,8 +96,6 @@ public class View {
 		@Override
 		public void handle(ActionEvent event) {
 			PreferencesView preferencesView = new PreferencesView();
-			//preferencesView.show();
-			System.out.println("Preferences clicked");
 		}
 	}
 	
