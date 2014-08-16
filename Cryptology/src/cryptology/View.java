@@ -49,7 +49,7 @@ public class View {
 		contentVBox.getChildren().add(menuBar);
 		
 		// <Common Control Pane
-		HBox commonControlsHPane = new HBox();
+		HBox commonControlsHBox = new HBox();
 		
 		// <Clear Text Controls
 		VBox clearTextVBox = new VBox();
@@ -83,10 +83,10 @@ public class View {
 		cipherTextVBox.getChildren().addAll(cipherTextLabel, cipherTextTextArea);
 		// End of Cipher Text Controls>
 		
-		commonControlsHPane.getChildren().addAll(clearTextVBox, cipherButtonVBox, cipherTextVBox);
+		commonControlsHBox.getChildren().addAll(clearTextVBox, cipherButtonVBox, cipherTextVBox);
 		// End of Common Control Pane>
 		
-		contentVBox.getChildren().addAll(commonControlsHPane);
+		contentVBox.getChildren().addAll(commonControlsHBox);
 		
 		primaryStage.show();
 	}
