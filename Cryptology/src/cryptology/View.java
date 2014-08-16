@@ -8,7 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ToolBar;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -34,6 +38,15 @@ public class View {
 		
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Cryptology");
+		
+		// Create the Menu Bar
+		MenuBar menuBar = new MenuBar();
+		Menu settingsMenu = new Menu("Settings");
+		menuBar.getMenus().add(settingsMenu);
+		MenuItem prefrencesMenuItem = new MenuItem("Preferences");
+		prefrencesMenuItem.addEventHandler(ActionEvent.ACTION, new PreferencesEventHandler());
+		settingsMenu.getItems().add(prefrencesMenuItem);
+		outerPane.getChildren().add(menuBar);
 		
 		// <Common Control Pane
 		HBox commonControlsHPane = new HBox();
@@ -76,6 +89,15 @@ public class View {
 		outerPane.getChildren().addAll(commonControlsHPane);
 		
 		primaryStage.show();
+	}
+	
+	private class PreferencesEventHandler implements EventHandler<ActionEvent> {
+
+		@Override
+		public void handle(ActionEvent event) {
+			
+			System.out.println("Preferences clicked");
+		}
 	}
 	
 	private class EncipherButtonEventHandler implements EventHandler<ActionEvent> {
