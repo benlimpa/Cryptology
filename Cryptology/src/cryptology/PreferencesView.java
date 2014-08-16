@@ -24,12 +24,14 @@ public class PreferencesView extends Stage {
 		HBox mainHBox = new HBox();
 		mainHBox.setSpacing(20);
 		
+		VBox preferenceEditorVBox = new VBox();
+		
 		ListView<String> categoryList = new ListView<String>();
 		ObservableList<String> categories = FXCollections.observableArrayList(CATEGORY_NAMES);
 		categoryList.setItems(categories);
 		
 		// Add objects to mainPane
-		mainHBox.getChildren().add(categoryList);
+		mainHBox.getChildren().addAll(categoryList, preferenceEditorVBox);
 		
 		// Add objects to contentPane
 		contentVBox.getChildren().add(mainHBox);
