@@ -95,7 +95,7 @@ public class View {
 
 		@Override
 		public void handle(ActionEvent event) {
-			PreferencesView preferencesView = new PreferencesView();
+			PreferencesView preferencesView = new PreferencesView(controller);
 		}
 	}
 	
