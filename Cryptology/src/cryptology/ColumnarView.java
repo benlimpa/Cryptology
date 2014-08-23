@@ -26,7 +26,7 @@ public class ColumnarView extends VBox {
 	 * Constructor Method
 	 */
 	
-	public ColumnarView(Dimension columnarViewDimension) {
+	public ColumnarView(Dimension dimension) {
 	
 		TabPane tabPane = new TabPane();
 		tabPane.setStyle("-fx-font-size: 12pt;");
