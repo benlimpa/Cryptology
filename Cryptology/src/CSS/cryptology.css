@@ -9,13 +9,13 @@
 .label {
 	-fx-text-fill: black;
 	-fx-font-size: 12px;
-	-fx-font-weight: bold;
+	-fx-font-weight: normal;
 }
 
 .button {
 	-fx-text-fill: black;
 	-fx-font-size: 12px;
-	-fx-font-weight: bold;
+	-fx-font-weight: normal;
 }
 
 .choice-box {
