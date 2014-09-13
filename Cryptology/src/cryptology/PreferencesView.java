@@ -68,6 +68,7 @@ public class PreferencesView extends Stage {
 
 			@Override
 			public void handle(ActionEvent event) {
+				
 				controller.updateDoc(prefs);
 				close();
 			}
@@ -146,13 +147,13 @@ public class PreferencesView extends Stage {
 				@Override public void replaceText(int start, int end, String text) {
 					// If the replaced text would end up being invalid, then simply
 					// ignore this call!
-					if (!text.matches("[-a-zA-Z!@#$%^&*()=+_\\[\\]{}\\\\|;:'\",<.>/?`~]")) {
+					if (!text.matches("[-a-zA-Z!@#$%^&*()=+_\\[\\]{}\\\\|;:'\",<.>/?`~]")) { // This excludes everything but numbers, could not be done with just including number because it excludes backspace which I couldn't figure out how to include
 						super.replaceText(start, end, text);
 					}
 				}
 			 
 				@Override public void replaceSelection(String text) {
-					if (!text.matches("[-a-zA-Z!@#$%^&*()=+_\\[\\]{}\\\\|;:'\",<.>/?`~]")) {
+					if (!text.matches("[-a-zA-Z!@#$%^&*()=+_\\[\\]{}\\\\|;:'\",<.>/?`~]")) { // This excludes everything but numbers, could not be done with just including number because it excludes backspace which I couldn't figure out how to include
 						super.replaceSelection(text);
 					}
 				}
@@ -179,6 +180,15 @@ public class PreferencesView extends Stage {
 				@Override
 				public void handle(ActionEvent event) {
 					prefs.setBlockSize(Integer.parseInt(blockSizeTextField.getText()));
+				}
+			});
+			
+			blockSizeTextField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+				@Override
+				public void changed(ObservableValue<? extends Boolean> obsVal, Boolean oldVal, Boolean newVal) {
+					if (!newVal) {
+						prefs.setBlockSize(Integer.parseInt(blockSizeTextField.getText()));
+					}
 				}
 			});
 			
