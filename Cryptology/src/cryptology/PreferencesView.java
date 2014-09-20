@@ -33,6 +33,7 @@ public class PreferencesView extends Stage {
 		contentVBox.setSpacing(3);
 		
 		Scene scene = new Scene(contentVBox);
+		scene.getStylesheets().add(this.getClass().getResource("/CSS/cryptology.css").toExternalForm());
 		
 		this.setScene(scene);
 		this.setTitle("Preferences");
@@ -122,7 +123,8 @@ public class PreferencesView extends Stage {
 			preferenceEditorVBox.setSpacing(3);
 			
 			Label label = new Label("Global Preferences");
-			label.setStyle("-fx-font-weight: bold");
+			label.setId("titleLabel");
+			//label.setStyle("-fx-font-weight: bold");
 			
 			Separator titleSeparator = new Separator();
 			
@@ -206,6 +208,7 @@ public class PreferencesView extends Stage {
 			
 			preferenceEditorVBox = new VBox();
 			Label label = new Label("Substitution");
+			label.setId("titleLabel");
 			preferenceEditorVBox.getChildren().add(label);
 			mainHBox.getChildren().add(preferenceEditorVBox);
 		}
@@ -217,6 +220,7 @@ public class PreferencesView extends Stage {
 			
 			preferenceEditorVBox = new VBox();
 			Label label = new Label("Transposition");
+			label.setId("titleLabel");
 			preferenceEditorVBox.getChildren().add(label);
 			mainHBox.getChildren().add(preferenceEditorVBox);
 		}
