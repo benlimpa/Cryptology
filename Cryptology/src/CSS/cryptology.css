@@ -9,7 +9,10 @@
 .label {
 	-fx-text-fill: black;
 	-fx-font-size: 12px;
-	-fx-font-weight: normal;
+}
+
+#titleLabel {
+	-fx-font-size: 48px;
 }
 
 .button {
